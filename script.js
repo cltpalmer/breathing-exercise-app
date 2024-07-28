@@ -16,12 +16,17 @@ document.querySelector('.play-button').addEventListener('click', function() {
 const circle = document.querySelector('.circle');
 const text = document.querySelector('.inhale-exhale-text');
 
+circle.addEventListener('animationstart', () => {
+    text.textContent = 'Inhale';
+    text.style.color = 'white';
+});
+
 circle.addEventListener('animationiteration', () => {
-    if (text.textContent === 'Inhale') {
-        text.textContent = 'Exhale';
-        text.style.color = 'black';
-    } else {
+    if (text.textContent === 'Exhale') {
         text.textContent = 'Inhale';
         text.style.color = 'white';
+    } else {
+        text.textContent = 'Exhale';
+        text.style.color = 'black';
     }
 });
