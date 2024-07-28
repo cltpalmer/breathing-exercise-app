@@ -11,6 +11,7 @@ body {
 
 .container {
     text-align: center;
+    position: relative;
 }
 
 .circle {
@@ -22,8 +23,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
     transition: transform 4s ease-in-out, background-color 4s ease-in-out;
+    margin-bottom: 20px; /* Add space below the circle */
 }
 
 .circle.animate {
@@ -39,6 +40,29 @@ body {
     cursor: pointer;
 }
 
+.stop-button {
+    width: 40px;
+    height: 40px;
+    background-color: #b388eb;
+    border-radius: 8px;
+    display: none; /* Initially hidden */
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -100px; /* Position below the circle, adjust as needed */
+}
+
+.stop-button::before {
+    content: '■';
+    color: white;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
 .inhale-exhale-text {
     position: absolute;
     font-size: 1.5em;
@@ -48,7 +72,7 @@ body {
 
 @keyframes breathe {
     0% {
-        transform: scale(0.5);
+        transform: scale(1);
         background-color: transparent;
     }
     50% {
@@ -56,7 +80,7 @@ body {
         background-color: #b388eb;
     }
     100% {
-        transform: scale(0.5);
+        transform: scale(1);
         background-color: transparent;
     }
 }
