@@ -13,23 +13,17 @@ body {
     text-align: center;
 }
 
-h1 {
-    font-size: 2em;
-    margin-bottom: 50px; /* Move the text higher */
-    color: #b388eb;
-    font-weight: 400; /* Make the text thinner */
-}
-
 .circle {
     width: 150px;
     height: 150px;
     border-radius: 50%;
     border: 2px solid #b388eb; /* Thin purple outline */
-    background-color: transparent; /* Transparent fill */
+    background-color: transparent; /* Transparent fill initially */
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform 4s ease-in-out;
+    position: relative;
+    transition: transform 4s ease-in-out, background-color 4s ease-in-out;
 }
 
 .circle.animate {
@@ -45,14 +39,26 @@ h1 {
     cursor: pointer;
 }
 
+.inhale-exhale-text {
+    position: absolute;
+    font-size: 1.5em;
+    font-weight: 400;
+    display: none; /* Initially hidden */
+}
+
 @keyframes breathe {
     0% {
-        transform: scale(1);
+        transform: scale(0.5);
+        background-color: transparent;
     }
     50% {
         transform: scale(1.5);
+        background-color: #b388eb;
+        color: white;
     }
     100% {
-        transform: scale(1);
+        transform: scale(0.5);
+        background-color: transparent;
+        color: black;
     }
 }
