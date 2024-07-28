@@ -13,24 +13,15 @@ document.querySelector('.play-button').addEventListener('click', function() {
     }
 });
 
-const breatheAnimation = (entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const circle = document.querySelector('.circle');
-            const text = document.querySelector('.inhale-exhale-text');
-            
-            circle.addEventListener('animationiteration', () => {
-                if (circle.style.backgroundColor === 'rgb(179, 136, 235)') {
-                    text.textContent = 'Inhale';
-                    text.style.color = 'white';
-                } else {
-                    text.textContent = 'Exhale';
-                    text.style.color = 'black';
-                }
-            });
-        }
-    });
-};
+const circle = document.querySelector('.circle');
+const text = document.querySelector('.inhale-exhale-text');
 
-const observer = new IntersectionObserver(breatheAnimation);
-observer.observe(document.querySelector('.circle'));
+circle.addEventListener('animationiteration', () => {
+    if (text.textContent === 'Inhale') {
+        text.textContent = 'Exhale';
+        text.style.color = 'black';
+    } else {
+        text.textContent = 'Inhale';
+        text.style.color = 'white';
+    }
+});
