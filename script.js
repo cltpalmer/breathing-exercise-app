@@ -21,11 +21,11 @@ circle.addEventListener('animationstart', () => {
     text.style.color = 'white';
 });
 
-circle.addEventListener('animationiteration', () => {
-    if (text.textContent === 'Exhale') {
+circle.addEventListener('animationiteration', (event) => {
+    if (event.elapsedTime % 8 === 0) {
         text.textContent = 'Inhale';
         text.style.color = 'white';
-    } else {
+    } else if (event.elapsedTime % 8 === 4) {
         text.textContent = 'Exhale';
         text.style.color = 'black';
     }
