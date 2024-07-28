@@ -15,15 +15,17 @@ body {
 
 h1 {
     font-size: 2em;
-    margin-bottom: 20px;
+    margin-bottom: 50px; /* Move the text higher */
     color: #b388eb;
+    font-weight: 400; /* Make the text thinner */
 }
 
 .circle {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    background-color: #e0d7f5;
+    border: 2px solid #b388eb; /* Thin purple outline */
+    background-color: transparent; /* Transparent fill */
     display: flex;
     justify-content: center;
     align-items: center;
